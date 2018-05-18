@@ -9,6 +9,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { MainComponent } from './components/main/main.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.component';
+import { EntryComponent } from './components/entry/entry.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.comp
     SigninComponent,
     MainComponent,
     ProfileComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    EntryComponent
   ],
   imports: [
     BrowserModule,
