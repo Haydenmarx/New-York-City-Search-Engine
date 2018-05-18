@@ -1,3 +1,6 @@
-<p>
-  entry works!
-</p>
+<div>
+  <a routerLink="/login">Log In</a>
+  <a routerLink="/signin">Sign In</a>
+  <app-login *ngIf="login" [data]="users"></app-login>
+  <app-signin *ngIf="signin" ></app-signin>
+</div>
