@@ -15,6 +15,11 @@ export class EntryComponent implements OnInit {
   login = false;
   signin = false;
 
+  signInUser = (username: string) => {
+    const result = this.users.find( user => user.username.toLowerCase() === username.toLowerCase());
+    console.log('REsult::', result);
+  }
+
   ngOnInit() {
     this.usersService.getUsers().subscribe( users => this.users = users );
     this.route.data

@@ -1,3 +1,14 @@
-<ul>
-  <li *ngFor="let user of data">{{user.username}} {{form}}</li>
-</ul>
+<form id="log-in" (submit)="func(formData.username)">
+  <label for="username">Username: </label>
+  <input 
+    id="username"
+    name="username"
+    [(ngModel)]="formData.username"
+  >
+  <!-- <label for="password">Password: </label>
+  <input id="password"> -->
+  <button type="submit">Sign In</button>
+  <!-- <ul>
+    <li *ngFor="let user of data">{{user.username}} {{form}}</li>
+  </ul> -->
+</form>

@@ -1,0 +1,15 @@
+#log-in {
+  display: flex;
+  height: 270px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#log-in > label {
+  padding-top: 20px;
+}
+
+#log-in > button {
+  margin-top: auto;
+  margin-bottom: 20px;
+}

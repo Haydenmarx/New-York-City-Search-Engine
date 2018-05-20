@@ -9,6 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   @Input() data: any;
+  @Input() func: any;
+
+  formData = {
+    username: '',
+  };
 
   constructor() { }
 

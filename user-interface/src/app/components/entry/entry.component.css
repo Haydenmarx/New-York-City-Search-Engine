@@ -1,0 +1,31 @@
+#entry-form {
+ width: 400px;
+ height: 300px;
+ margin: auto;
+ margin-top: calc(50vh - 150px);
+ border: 1px solid black;
+ border-radius: 20px;
+ overflow: hidden;
+}
+
+#entry-form > div:first-of-type {
+  display: flex;
+  justify-content: space-around;
+  height: 30px;
+}
+
+#entry-form > div:first-of-type > button {
+  flex: 1 1 auto;
+  border: 0px solid black;
+  cursor: pointer;
+  font-size: 1.3em;
+}
+
+#entry-form > div:first-of-type > button:hover {
+  font-weight: 600;
+  background-color: rgba(255, 255, 0, 0.37);
+}
+
+#entry-form > div:first-of-type > button:first-of-type {
+  border-right: 1px solid black;
+}

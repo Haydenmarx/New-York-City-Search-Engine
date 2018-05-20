@@ -1,6 +1,8 @@
-<div>
-  <a routerLink="/login">Log In</a>
-  <a routerLink="/signin">Sign In</a>
-  <app-login *ngIf="login" [data]="users"></app-login>
-  <app-signin *ngIf="signin" ></app-signin>
+<div id="entry-form">
+  <div>
+    <button routerLink="/login">Log In</button>
+    <button routerLink="/signin">Sign Up</button>
+  </div>
+  <app-login *ngIf="login" [data]="users" [func]="signInUser" ></app-login>
+  <app-signin *ngIf="signin" [data]="users"></app-signin>
 </div>
