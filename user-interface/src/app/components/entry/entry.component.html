@@ -1,8 +1,10 @@
 <div id="entry-form">
   <div>
     <button routerLink="/login">Log In</button>
-    <button routerLink="/signin">Sign Up</button>
+    <button routerLink="/signup">Sign Up</button>
   </div>
+  <button (click)="stateUser()">User</button>
+  | {{ user }} |
   <app-login *ngIf="login" [data]="users" [func]="signInUser" ></app-login>
-  <app-signin *ngIf="signin" [data]="users"></app-signin>
+  <app-signin *ngIf="signup" [data]="users" [func]="signInUser" ></app-signin>
 </div>

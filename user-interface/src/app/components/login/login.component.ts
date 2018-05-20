@@ -1,4 +1,3 @@
-import { UsersService } from './../../users.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

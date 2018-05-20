@@ -8,11 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SigninComponent implements OnInit {
 
   @Input() data: any;
+  @Input() func: any;
 
-  yell = () => {
-    console.log('henlo');
-  }
-
+  formData = {
+    username: '',
+  };
   constructor() { }
 
   ngOnInit() {

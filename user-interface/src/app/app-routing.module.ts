@@ -19,9 +19,9 @@ const routes: Routes = [
     data: { form: 'login' }
   },
   {
-    path: 'signin',
+    path: 'signup',
     component: EntryComponent,
-    data: { form: 'signin' }
+    data: { form: 'signup' }
   },
   {
     path: ':username/main',

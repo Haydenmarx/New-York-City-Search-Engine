@@ -1,13 +1,13 @@
-<form id="sign-in" (submit)="yell()">
+<form id="sign-in"(submit)="func(formData.username)">
   <label for="username">Username: </label>
-  <input id="username">
+  <input 
+    id="username"
+    name="username"
+    [(ngModel)]="formData.username"
+  >
   <!-- <label for="password">Password: </label>
   <input id="password">
   <label for="password-confirm">Confirm: </label>
   <input id="password-confirm"> -->
   <button type="submit">Create Account</button>
 </form>
-
-<ul>
-  <li *ngFor="let user of data">{{user.username}} {{form}}</li>
-</ul>
