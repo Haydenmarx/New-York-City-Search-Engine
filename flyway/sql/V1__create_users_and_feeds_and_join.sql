@@ -12,5 +12,6 @@ create table FEEDS (
 create table CHAPTERS (
   ID serial primary key,
   USER_ID integer references USERS,
-  FEED_ID integer references FEEDS 
+  FEED_ID integer references FEEDS,
+  PARAMS varchar ARRAY  
 );
