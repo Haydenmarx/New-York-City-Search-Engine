@@ -11,6 +11,7 @@ export class ProfileComponent implements OnInit {
   @Input() user: any;
   @Input() toggleLoggedIn: any;
   @Input() removeUser: any;
+  displayname: string;
 
   constructor(private usersService: UsersService) { }
 
@@ -20,6 +21,13 @@ export class ProfileComponent implements OnInit {
       this.usersService.deleteUser(this.user.id).subscribe( data => this.removeUser(this.user.id) );
       this.toggleLoggedIn();
     }
+  }
+
+  updateProfile = () => {
+    this.user.displayname = this.displayname;
+    this.usersService.updateUser(this.user).subscribe( response => {
+      console.log(response);
+    });
   }
 
   ngOnInit() {

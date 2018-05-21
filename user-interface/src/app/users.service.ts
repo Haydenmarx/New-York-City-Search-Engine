@@ -10,16 +10,20 @@ export class UsersService {
 
   url = '/api/users';
 
-  getUsers() {
+  getUsers = () => {
     return this.httpClient.get(this.url);
   }
 
-  addUser(user) {
+  addUser = (user) => {
     return this.httpClient.post(this.url, user);
   }
 
-  deleteUser(userId) {
+  deleteUser = (userId) => {
     return this.httpClient.delete(this.url.concat('/', userId));
+  }
+
+  updateUser = (user: any) => {
+    return this.httpClient.post(this.url, user);
   }
 
 }
