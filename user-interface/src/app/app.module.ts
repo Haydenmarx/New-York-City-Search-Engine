@@ -10,6 +10,7 @@ import { MainComponent } from './components/main/main.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.component';
 import { EntryComponent } from './components/entry/entry.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EntryComponent } from './components/entry/entry.component';
     MainComponent,
     ProfileComponent,
     FourOhFourComponent,
-    EntryComponent
+    EntryComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

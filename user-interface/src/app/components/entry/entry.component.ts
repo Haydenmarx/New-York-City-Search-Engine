@@ -28,8 +28,12 @@ export class EntryComponent implements OnInit {
       this.loginError = 'Cant find user.';
     } else {
       this.user = result;
-      this.loggedIn = true;
+      this.toggleLoggedIn();
     }
+  }
+
+  toggleLoggedIn = () => {
+    this.loggedIn = !this.loggedIn;
   }
 
   toggleForm = () => {
@@ -47,7 +51,7 @@ export class EntryComponent implements OnInit {
       this.usersService.addUser({username: username}).subscribe( newUser => {
         this.user = newUser;
         this.usersService.getUsers().subscribe( users => this.users = users );
-        this.loggedIn = true;
+        this.toggleLoggedIn();
       });
     } else {
       this.signupError = 'Username already exists.';

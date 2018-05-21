@@ -1,16 +1,26 @@
-<div id="entry-form">
+<div id="entry-form" *ngIf="(loggedIn===false)" >
   <div>
     <button (click)="toggleForm()" >Log In</button>
     <button (click)="toggleForm()" > Sign Up</button>    
     <!-- <button routerLink="/login">Log In</button>
     <button routerLink="/signup">Sign Up</button> -->
   </div>
-  <!-- <button (click)="stateUser()">User</button> -->
-  <app-login *ngIf="login" [data]="users" [func]="signInUser" ></app-login>
-  <app-signin *ngIf="signup" [data]="users" [func]="createUser" ></app-signin>
+  <app-login
+    *ngIf="login"
+    [data]="users"
+    [func]="signInUser"
+  >
+  </app-login>
+  <app-signin
+    *ngIf="signup"
+    [data]="users"
+    [func]="createUser"
+  >
+  </app-signin>
 </div>
-
-<h1 *ngIf="loggedIn">Logged In!</h1>
-<ul>
-  <li *ngFor="let user of users">{{user.id}}: {{user.username}}</li>
-</ul>
+<app-main
+  *ngIf="loggedIn"
+  [user]="user"
+  [toggleLoggedIn]="toggleLoggedIn"
+>
+</app-main>
