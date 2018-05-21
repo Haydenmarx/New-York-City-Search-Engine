@@ -10,7 +10,7 @@
   <app-signin *ngIf="signup" [data]="users" [func]="createUser" ></app-signin>
 </div>
 
-
+<h1 *ngIf="loggedIn">Logged In!</h1>
 <ul>
   <li *ngFor="let user of users">{{user.id}}: {{user.username}}</li>
 </ul>

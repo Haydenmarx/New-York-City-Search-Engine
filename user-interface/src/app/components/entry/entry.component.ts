@@ -11,18 +11,25 @@ export class EntryComponent implements OnInit {
 
   constructor(private usersService: UsersService, private route: ActivatedRoute) { }
 
+  loggedIn = false;
+
   users: any;
-  user: string;
+  user: any;
 
   login = false;
+  loginError: string;
 
   signup = false;
   signupError: string;
 
   signInUser = (username: string) => {
     const result = this.users.find( user => user.username.toLowerCase() === username.toLowerCase());
-    this.user = result.username;
-    console.log('REsult::', result);
+    if (result === undefined) {
+      this.loginError = 'Cant find user.';
+    } else {
+      this.user = result;
+      this.loggedIn = true;
+    }
   }
 
   toggleForm = () => {
@@ -37,9 +44,10 @@ export class EntryComponent implements OnInit {
 
   createUser = (username: string) => {
     if (this.users.find( user => user.username.toLowerCase() === username.toLowerCase()) === undefined) {
-      this.usersService.addUser({username: username}).subscribe( response => {
-        console.log(response);
+      this.usersService.addUser({username: username}).subscribe( newUser => {
+        this.user = newUser;
         this.usersService.getUsers().subscribe( users => this.users = users );
+        this.loggedIn = true;
       });
     } else {
       this.signupError = 'Username already exists.';
