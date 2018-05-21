@@ -55,6 +55,14 @@ services:
     environment:
       - GRADLE_USER_HOME=cache
       - SPRING_PROFILES_ACTIVE=dev
+  ui:
+    image: johnpapa/angular-cli
+    ports:
+      - "4200:4200"
+    working_dir: /user-interface
+    volumes:
+      - ./user-interface:/user-interface
+    command: "npm run docker"
   postgresdev:
     image: postgres
     ports:
