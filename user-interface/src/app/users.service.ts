@@ -14,5 +14,9 @@ export class UsersService {
     return this.httpClient.get(this.url);
   }
 
+  addUser(user) {
+    return this.httpClient.post(this.url, user);
+  }
+
 }
 
