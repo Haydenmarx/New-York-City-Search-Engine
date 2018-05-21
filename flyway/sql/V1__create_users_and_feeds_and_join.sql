@@ -1,6 +1,7 @@
 create table USERS (
   ID serial primary key,
-  USERNAME varchar NOT NULL
+  USERNAME varchar NOT NULL,
+  DISPLAYNAME varchar
 );
 
 create table FEEDS (

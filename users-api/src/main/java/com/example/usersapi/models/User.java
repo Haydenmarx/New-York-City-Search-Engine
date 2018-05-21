@@ -15,4 +15,7 @@ public class User {
   @Column(name = "USERNAME")
   private String username;
 
+  @Column(name = "DISPLAYNAME")
+  private String displayname;
+
 }
