@@ -5,7 +5,13 @@
     [setMain]="setMain"
   >
   </app-navbar>
-  <app-profile *ngIf="(page==='Profile')" ></app-profile>
+  <app-profile 
+    *ngIf="(page==='Profile')"
+    [user]="user"
+    [toggleLoggedIn]="toggleLoggedIn"
+    [removeUser]="removeUser"
+  >
+  </app-profile>
   <div *ngIf="(page==='Home')" >
       <h1>{{user.id}}'s Feeds:</h1>
       <ul>

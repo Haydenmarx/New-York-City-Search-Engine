@@ -18,5 +18,9 @@ export class UsersService {
     return this.httpClient.post(this.url, user);
   }
 
+  deleteUser(userId) {
+    return this.httpClient.delete(this.url.concat('/', userId));
+  }
+
 }
 

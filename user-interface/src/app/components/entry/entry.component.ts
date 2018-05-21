@@ -58,8 +58,12 @@ export class EntryComponent implements OnInit {
     }
   }
 
+  removeUser = (userId: number) => {
+    this.users = this.users.filter( user => user.id !== userId);
+  }
+
   ngOnInit() {
-    this.usersService.getUsers().subscribe( users => this.users = users );
+    this.usersService.getUsers().subscribe( users => {this.users = users; console.log(users); } );
     this.route.data
     .subscribe( data => {
       if (data.form === 'signup') {

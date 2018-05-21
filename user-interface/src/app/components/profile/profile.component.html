@@ -6,13 +6,13 @@
   </app-navbar> -->
   <div id="user-profile-body">
     <div id="user-profile-feeds">
-      <h1>{{user.id}}'s Feeds:</h1>
+      <h1>{{user.username}}'s Feeds:</h1>
       <button>Edit Feeds</button>
     </div>
     <div id="user-profile-edit">
       <h1>{{user.username}}'s Profile</h1>
       <button>Edit Profile</button>
-      <button>Delete Profille</button>
+      <button (click)="deleteMyself()">Delete Profille</button>
     </div>
   </div>
 </div>

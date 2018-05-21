@@ -9,7 +9,7 @@
 #nav-bar > button {
   height: 40px;
   border: none;
-  flex-basis: 60px;
+  flex: 1 0 60px;
   cursor: pointer;
   font-size: 1.3em;
 }

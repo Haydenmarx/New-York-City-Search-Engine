@@ -12,4 +12,5 @@
 #log-in > button {
   margin-top: auto;
   margin-bottom: 20px;
+  cursor: pointer;
 }

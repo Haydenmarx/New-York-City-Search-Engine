@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UsersService } from '../../users.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  @Input() user: any;
+  @Input() toggleLoggedIn: any;
+  @Input() removeUser: any;
+
+  constructor(private usersService: UsersService) { }
+
+  deleteMyself = () => {
+    const checker = prompt('Are you sure you want to permently Delete your profile and all saved information?\nYes or No');
+    if (checker.toLowerCase() === 'yes') {
+      this.usersService.deleteUser(this.user.id).subscribe( data => this.removeUser(this.user.id) );
+      this.toggleLoggedIn();
+    }
+  }
 
   ngOnInit() {
   }
