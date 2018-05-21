@@ -1,5 +1,5 @@
-<div>
-  <button>Home</button>
-  <button>{{user.username}}'s Profile</button>
+<div id="nav-bar">
+  <button (click)="setMain('Home')">Home</button>
+  <button (click)="setMain('Profile')">{{user.username}}'s Profile</button>
   <button (click)="toggleLoggedIn()" >LogOut</button>
 </div>

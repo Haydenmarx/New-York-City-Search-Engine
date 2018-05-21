@@ -1,8 +1,15 @@
-<app-navbar
-  [user]="user"
-  [toggleLoggedIn]="toggleLoggedIn"
->
-</app-navbar>
-<ul>
-  <li>{{user.id}}: {{user.username}}</li>
-</ul>
+<div>
+  <app-navbar
+    [user]="user"
+    [toggleLoggedIn]="toggleLoggedIn"
+    [setMain]="setMain"
+  >
+  </app-navbar>
+  <app-profile *ngIf="(page==='Profile')" ></app-profile>
+  <div *ngIf="(page==='Home')" >
+      <h1>{{user.id}}'s Feeds:</h1>
+      <ul>
+        <li>{{user.id}}: {{user.username}}</li>
+      </ul>
+  </div>
+</div>

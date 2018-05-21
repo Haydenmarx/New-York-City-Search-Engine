@@ -9,6 +9,7 @@ export class NavbarComponent implements OnInit {
 
   @Input() toggleLoggedIn: any;
   @Input() user: any;
+  @Input() setMain: any;
 
   constructor() { }
 
