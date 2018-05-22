@@ -70,25 +70,30 @@ public class UsersApiFeatureTest {
     $("#login-username").sendKeys("Third User");
     $(byText("Sign In")).click();
     $(".error-message").shouldHave(text("Can\'t find user"));
+    sleep(1000);
 
     //Create User, check buttons and log out.
     $(byText("Sign Up")).click();
     $("#signin-username").sendKeys("Third User");
     $(byText("Create Account")).click();
+    sleep(1000);
     $(byText("Third User's Profile")).click();
     $(byText("Home")).click();
     $(byText("Log Out")).click();
+    sleep(1000);
 
     //go to signup page and check for error message when making duplicate user then return to signin page
     $(byText("Sign Up")).click();
     $("#signin-username").sendKeys("Third User");
     $(byText("Create Account")).click();
     $(".error-message").shouldHave(text("Username already exists"));
+    sleep(1000);
 
     //Sign in with account and navigate to Profile Page
     $(byText("Log In")).click();
     $("#login-username").sendKeys("Third User");
     $(byText("Sign In")).click();
+    sleep(1000);
     $(byText("Third User's Profile")).click();
 
     //Check update displayname
@@ -99,9 +104,10 @@ public class UsersApiFeatureTest {
     //Delete user and confirm
     $(byText("Delete Profile")).click();
     Selenide.confirm();
-    sleep(1000);
+    sleep(2000);
     $("#login-username").sendKeys("Third User");
     $(byText("Sign In")).click();
     $(".error-message").shouldHave(text("Can\'t find user"));
+    sleep(1000);
   }
 }
