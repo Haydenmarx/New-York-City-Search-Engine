@@ -36,11 +36,11 @@ export class EntryComponent implements OnInit {
     this.loggedIn = !this.loggedIn;
   }
 
-  toggleForm = () => {
-    if (this.login === true) {
+  toggleForm = (destination: string) => {
+    if (this.login === true && destination === 'signup') {
       this.login = false;
       this.signup = true;
-    } else {
+    } else if (this.signup === true && destination === 'login') {
       this.login = true;
       this.signup = false;
     }
@@ -52,6 +52,7 @@ export class EntryComponent implements OnInit {
         this.user = newUser;
         this.usersService.getUsers().subscribe( users => this.users = users );
         this.toggleLoggedIn();
+        this.toggleForm('login');
       });
     } else {
       this.signupError = 'Username already exists.';

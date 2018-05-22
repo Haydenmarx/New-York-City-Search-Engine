@@ -1,7 +1,7 @@
 <div id="entry-form" *ngIf="(loggedIn===false)" >
   <div>
-    <button (click)="toggleForm()" >Log In</button>
-    <button (click)="toggleForm()" > Sign Up</button>    
+    <button (click)="toggleForm('login')" >Log In</button>
+    <button (click)="toggleForm('signup')" > Sign Up</button>    
     <!-- <button routerLink="/login">Log In</button>
     <button routerLink="/signup">Sign Up</button> -->
   </div>

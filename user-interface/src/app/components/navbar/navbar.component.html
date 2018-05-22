@@ -2,5 +2,5 @@
   <button (click)="setMain('Home')">Home</button>
   <button (click)="setMain('Profile')" *ngIf="(user.displayname === null)" >{{user.username}}'s Profile</button>
   <button (click)="setMain('Profile')" *ngIf="(user.displayname !== null)">{{user.displayname}}'s Profile</button>
-  <button (click)="toggleLoggedIn()" >LogOut</button>
+  <button (click)="toggleLoggedIn()" >Log Out</button>
 </div>
