@@ -1,4 +1,5 @@
 <form id="sign-in"(submit)="func(formData.username)">
+  <label class="error-message" *ngIf="(errorMessage !== '')">{{errorMessage}}</label>  
   <label for="username">Username: </label>
   <input 
     id="username"

@@ -5,7 +5,7 @@
   justify-content: flex-start;
 }
 
-#log-in > label {
+#log-in > label:not(.error-message) {
   padding-top: 20px;
 }
 
@@ -14,3 +14,12 @@
   margin-bottom: 20px;
   cursor: pointer;
 }
+
+.error-message {
+  background-color: rgb(255, 0, 0);
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.4em;
+  margin-bottom: -20px;
+} 

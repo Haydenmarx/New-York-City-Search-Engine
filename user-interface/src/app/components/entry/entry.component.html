@@ -9,12 +9,14 @@
     *ngIf="login"
     [data]="users"
     [func]="signInUser"
+    [errorMessage]="loginError"
   >
   </app-login>
   <app-signin
     *ngIf="signup"
     [data]="users"
     [func]="createUser"
+    [errorMessage]="signupError"
   >
   </app-signin>
 </div>

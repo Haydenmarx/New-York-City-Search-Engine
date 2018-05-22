@@ -17,10 +17,10 @@ export class EntryComponent implements OnInit {
   user: any;
 
   login = false;
-  loginError: string;
+  loginError = '';
 
   signup = false;
-  signupError: string;
+  signupError = '';
 
   signInUser = (username: string) => {
     const result = this.users.find( user => user.username.toLowerCase() === username.toLowerCase());
@@ -28,6 +28,7 @@ export class EntryComponent implements OnInit {
       this.loginError = 'Cant find user.';
     } else {
       this.user = result;
+      this.loginError = '';
       this.toggleLoggedIn();
     }
   }
@@ -40,9 +41,11 @@ export class EntryComponent implements OnInit {
     if (this.login === true && destination === 'signup') {
       this.login = false;
       this.signup = true;
+      this.loginError = '';
     } else if (this.signup === true && destination === 'login') {
       this.login = true;
       this.signup = false;
+      this.signupError = '';
     }
   }
 
@@ -52,6 +55,7 @@ export class EntryComponent implements OnInit {
         this.user = newUser;
         this.usersService.getUsers().subscribe( users => this.users = users );
         this.toggleLoggedIn();
+        this.signupError = '';
         this.toggleForm('login');
       });
     } else {

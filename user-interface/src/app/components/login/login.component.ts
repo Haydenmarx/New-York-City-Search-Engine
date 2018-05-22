@@ -9,6 +9,7 @@ export class LoginComponent implements OnInit {
 
   @Input() data: any;
   @Input() func: any;
+  @Input() errorMessage: string;
 
   formData = {
     username: '',
