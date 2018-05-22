@@ -25,7 +25,7 @@ export class EntryComponent implements OnInit {
   signInUser = (username: string) => {
     const result = this.users.find( user => user.username.toLowerCase() === username.toLowerCase());
     if (result === undefined) {
-      this.loginError = 'Cant find user.';
+      this.loginError = 'Can\'t find user';
     } else {
       this.user = result;
       this.loginError = '';
@@ -59,7 +59,7 @@ export class EntryComponent implements OnInit {
         this.toggleForm('login');
       });
     } else {
-      this.signupError = 'Username already exists.';
+      this.signupError = 'Username already exists';
     }
   }
 

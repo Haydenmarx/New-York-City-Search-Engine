@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.visible;
 import java.util.stream.Stream;
 
 //import static io.restassured.RestAssured.options;
@@ -65,29 +66,42 @@ public class UsersApiFeatureTest {
 
     open("http://localhost:4200");
 
-    //enter in username then check for error message.
+    //Enter in username then check for error message for no available account.
+    $("#login-username").sendKeys("Third User");
+    $(byText("Sign In")).click();
+    $(".error-message").shouldHave(text("Can\'t find user"));
 
+    //Create User, check buttons and log out.
     $(byText("Sign Up")).click();
-    $("#username").sendKeys("Third User");
-
+    $("#signin-username").sendKeys("Third User");
     $(byText("Create Account")).click();
     $(byText("Third User's Profile")).click();
     $(byText("Home")).click();
     $(byText("Log Out")).click();
 
     //go to signup page and check for error message when making duplicate user then return to signin page
+    $(byText("Sign Up")).click();
+    $("#signin-username").sendKeys("Third User");
+    $(byText("Create Account")).click();
+    $(".error-message").shouldHave(text("Username already exists"));
 
-    $(byText("Sign In")).exists();
-    $("#username").sendKeys("Third User");
+    //Sign in with account and navigate to Profile Page
+    $(byText("Log In")).click();
+    $("#login-username").sendKeys("Third User");
     $(byText("Sign In")).click();
     $(byText("Third User's Profile")).click();
 
+    //Check update displayname
     $("#user-profile-add-display-name").sendKeys("Third User!!!!");
     $(byText("Edit Profile")).click();
     $(byText("Third User's Profile!!!")).exists();
+
+    //Delete user and confirm
     $(byText("Delete Profile")).click();
     Selenide.confirm();
-    //Check user is deleted by entering in username then checking for error message.
-    Thread.sleep(3000);
+    sleep(1000);
+    $("#login-username").sendKeys("Third User");
+    $(byText("Sign In")).click();
+    $(".error-message").shouldHave(text("Can\'t find user"));
   }
 }
