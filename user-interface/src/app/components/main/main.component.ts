@@ -10,6 +10,7 @@ export class MainComponent implements OnInit {
   @Input() toggleLoggedIn: any;
   @Input() user: any;
   @Input() removeUser: any;
+  @Input() updateUsers: any;
   page = 'Home';
 
   setMain = (page: string) => {

@@ -11,6 +11,7 @@ export class ProfileComponent implements OnInit {
   @Input() user: any;
   @Input() toggleLoggedIn: any;
   @Input() removeUser: any;
+  @Input() updateUsers: any;
   displayname: string;
 
   constructor(private usersService: UsersService) { }
@@ -24,9 +25,10 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile = () => {
-    this.user.displayname = this.displayname;
-    this.usersService.updateUser(this.user).subscribe( response => {
-      console.log(response);
+    const updatedUser = {...this.user};
+    updatedUser.displayname = this.displayname;
+    this.usersService.updateUser(updatedUser).subscribe( user => {
+      this.updateUsers(user);
     });
   }
 

@@ -49,6 +49,12 @@ export class EntryComponent implements OnInit {
     }
   }
 
+  updateUsers = (user) => {
+    const updateUser = this.users.find( oldUser => oldUser.username === user.username);
+    this.users[updateUser.id] = user;
+    this.user = user;
+  }
+
   createUser = (username: string) => {
     if (this.users.find( user => user.username.toLowerCase() === username.toLowerCase()) === undefined) {
       this.usersService.addUser({username: username}).subscribe( newUser => {
