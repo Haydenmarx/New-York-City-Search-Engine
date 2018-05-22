@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   constructor(private usersService: UsersService) { }
 
   deleteMyself = () => {
-    const checker = confirm('Are you sure you want to permanently Delete your profile and all saved information?\nYes or No');
+    const checker = confirm('Are you sure you want to permanently Delete your profile and all saved information?');
     if (checker === true) {
       this.usersService.deleteUser(this.user.id).subscribe( data => this.removeUser(this.user.id) );
       this.toggleLoggedIn();
