@@ -6,7 +6,7 @@
     "start": "ng serve --proxy-config proxy-dev.conf.json --host 0.0.0.0",
     "docker": "ng serve --proxy-config proxy.conf.json --host 0.0.0.0",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test ---sourceMap=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

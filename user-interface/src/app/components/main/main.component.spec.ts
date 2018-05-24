@@ -6,8 +6,8 @@ import { MainComponent } from './main.component';
 import { FormsModule } from '@angular/forms';
 
 describe('MainComponent', () => {
-  // let component: MainComponent;
-  // let fixture: ComponentFixture<MainComponent>;
+  let component: MainComponent;
+  let fixture: ComponentFixture<MainComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -20,12 +20,12 @@ describe('MainComponent', () => {
   }));
 
   beforeEach(() => {
-    // fixture = TestBed.createComponent(MainComponent);
-    // component = fixture.componentInstance;
-    // fixture.detectChanges();
+    fixture = TestBed.createComponent(MainComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', async (() => {
-    // expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   }));
 });
