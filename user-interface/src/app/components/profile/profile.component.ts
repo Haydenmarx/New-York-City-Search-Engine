@@ -8,7 +8,7 @@ import { UsersService } from '../../users.service';
 })
 export class ProfileComponent implements OnInit {
 
-  @Input() user: any;
+  @Input() user: any = { id: null, username: null, displayname: null };
   @Input() toggleLoggedIn: any;
   @Input() removeUser: any;
   @Input() updateUsers: any;

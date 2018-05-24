@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MainComponent implements OnInit {
 
   @Input() toggleLoggedIn: any;
-  @Input() user: any;
+  @Input() user: any = { id: null, username: null, displayname: null };
   @Input() removeUser: any;
   @Input() updateUsers: any;
   page = 'Home';
