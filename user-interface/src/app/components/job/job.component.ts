@@ -14,6 +14,8 @@ export class JobComponent implements OnInit {
   preferred_skills = false;
   hours_shift = false;
   to_apply = false;
+  residency_requirement = false;
+  additional_information = false;
 
   toggle = (category: string) => {
     this[category] = !this[category];

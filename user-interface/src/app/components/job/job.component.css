@@ -1,8 +1,6 @@
 .job-card {
   border: 1px solid black;
-  margin-left: 10vw;
-  width: 80vw;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
 }
 
 .job-card > .job-title {
@@ -20,6 +18,71 @@
   padding: 0px 20px;
 }
 
-.job-card > h2, .job-card > h4 {
+.job-card h2 {
+  font-size: 1.2em;
+}
+
+.job-card > div > h2, .job-card > div > h4 {
   margin: 0px;
+}
+
+.job-card > div > h2:first-of-type {
+  text-decoration: underline;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(128, 128, 128, 0.233);
+}
+
+.job-card > div > h2:nth-of-type(2) {
+  text-align: end;
+  background-color: rgba(128, 128, 128, 0.637);  
+  padding-right: 5%;
+}
+
+.job-card > div > h2:nth-of-type(3) {
+  border-top: 1px solid black;
+}
+
+.job-card > div > h2:nth-of-type(n+3) {
+  cursor: pointer;  
+  background: rgba(128, 128, 128, 0.233);
+  border-bottom: 1px solid black;
+}
+
+.job-card > div > h2:nth-of-type(n+3) ~ p:first-of-type {
+  background: rgba(128, 128, 128, 0.103);
+  margin: 0px;
+}
+
+.job-card > div > .job-misc {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background: rgba(128, 128, 128, 0.103);  
+}
+
+.job-card > div > .job-misc > div {
+  border: 1px dashed black;
+  background: rgba(128, 128, 128, 0.233);
+  text-align: center;
+  padding: 10px;  
+  margin: 20px auto;
+}
+
+.job-card > div > .job-misc > div > h4 {
+  margin: 5px;
+}
+
+.job-card > div > .job-misc > div > h4:first-of-type {
+  margin-top: 10px;
+}
+
+.job-card > div > .job-misc > div > h4:last-of-type {
+  margin-bottom: 10px;
+}
+
+.job-card > div > .dates {
+  background-color: rgba(128, 128, 128, 0.637);
+  display: flex;
+  justify-content: space-around;
 }

@@ -4,34 +4,68 @@
     <h1>Hiring For {{job.__of_positions}} Position<span *ngIf="(job.__of_positions != 1)">s</span></h1>
   </div>
   <div *ngIf="display">
-      <h2>{{job.agency}} || {{job.division_work_unit}} || {{job.job_category}}</h2>
-      <h2>Salary: {{job.salary_range_from}} - {{job.salary_range_to}} | {{job.salary_frequency}} | </h2>
+      <h2><span>{{job.agency}}</span> <span>{{job.division_work_unit}}</span><span>{{job.job_category}}</span></h2>
+      <h2>{{job.salary_frequency}} Salary Range: {{job.salary_range_from | currency}} - {{job.salary_range_to | currency}} </h2>
     
-      <h4 (click)="toggle('job_description'); $event.stopPropagation();" >Job Description:</h4>
+      <h2 (click)="toggle('job_description'); $event.stopPropagation();" >Job Description:</h2>
       <p *ngIf="job_description" [innerHTML]="job.job_description"></p>
     
-      <h4 (click)="toggle('minimum_qual_requirements'); $event.stopPropagation();" >Minimum Qualifications/Requirements:</h4>
+      <h2 (click)="toggle('minimum_qual_requirements'); $event.stopPropagation();" >Minimum Qualifications/Requirements:</h2>
       <p *ngIf="minimum_qual_requirements" [innerHTML]="job.minimum_qual_requirements" ></p>
     
-      <h4 (click)="toggle('preferred_skills'); $event.stopPropagation();" >Preferred Skills:</h4>
+      <h2 (click)="toggle('preferred_skills'); $event.stopPropagation();" >Preferred Skills:</h2>
       <p *ngIf="preferred_skills" [innerHTML]="job.preferred_skills"></p>
     
-      <h4 (click)="toggle('hours_shift'); $event.stopPropagation();" >Hours/Shift:</h4>
+      <h2 (click)="toggle('hours_shift'); $event.stopPropagation();" >Hours/Shift:</h2>
       <p *ngIf="hours_shift" [innerHTML]="job.hours_shift"></p>
     
-      <h4 (click)="toggle('to_apply'); $event.stopPropagation();" >Application Information:</h4>
+      <h2 (click)="toggle('to_apply'); $event.stopPropagation();" >Application Information:</h2>
       <p *ngIf="to_apply" [innerHTML]="job.to_apply"></p>
-    
-      <p>{{job.job_id}} || {{job.full_time_part_time_indicator}} || {{job.posting_type}} || {{job.residency_requirement}}</p>
-      <p>{{job.title_code_no}} || {{job.level}}</p>
-      <p>Location: {{job.work_location}} {{job.work_location_1}}</p>
-      <div>
+      <h2 (click)="toggle('residency_requirement'); $event.stopPropagation();" >Residency Requirements:</h2>
+      <p *ngIf="residency_requirement" >{{job.residency_requirement}}</p>
+      <h2 (click)="toggle('additional_information'); $event.stopPropagation();" >Additional Information:</h2>
+      <div *ngIf="additional_information" class="job-misc">
+        <div>
+          <h4>Job ID:</h4>
+          <h4>{{job.job_id}}</h4> 
+        </div>
+        <div>
+          <h4>Posting Type:</h4>
+          <h4>{{job.posting_type}}</h4> 
+        </div>
+        <div>
+          <h4>Full/Part Time:</h4>
+          <!-- <h4>{{(job.full_time_part_time_indicator === 'F' ? 'Full time' : job.full_time_part_time_indicator === 'P' ? 'Part Time' : job.full_time_part_time_indicator)}</h4>  -->
+          <h4 *ngIf="job.full_time_part_time_indicator === 'F'">Full Time</h4>
+          <h4 *ngIf="job.full_time_part_time_indicator === 'P'">Part Time</h4>
+          <h4 *ngIf="job.full_time_part_time_indicator !== 'F' || job.full_time_part_time_indicator === 'P'">{{job.full_time_part_time_indicator}}</h4>          
+        </div>
+        <div>
+          <h4>Job Level:</h4>
+          <h4> {{job.level}}</h4> 
+        </div>
+        <div>
+          <h4>Title Code:</h4>
+          <h4>{{job.title_code_no}}</h4> 
+        </div>
+        <div>
+          <h4>Location:</h4>
+          <h4>{{job.work_location}}</h4>
+          <h4>{{job.work_location_1}}</h4> 
+        </div>  
+      </div>    
+      
+      <div class="dates">
         <span>
-          Posted: {{job.posting_date}}
-        </span> || <span>
-          Updated: {{job.posting_updated}}
-        </span> || <span>
-          Process Date: Updated: {{job.process_date}}
+            <strong>Posted:</strong> {{job.posting_date | amDateFormat:'LL' }}
+        </span>
+        <span> || </span>
+        <span>
+            <strong>Updated:</strong> {{job.posting_updated | amTimeAgo }}
+        </span>
+        <span> || </span>        
+        <span>
+          <strong>Process Date:</strong> {{job.process_date | amDateFormat:'LL' }}
         </span>
       </div>
   </div>

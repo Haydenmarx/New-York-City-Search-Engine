@@ -13,6 +13,7 @@ import { EntryComponent } from './components/entry/entry.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { JobsListComponent } from './components/jobs-list/jobs-list.component';
 import { JobComponent } from './components/job/job.component';
+import { MomentModule } from 'angular2-moment/moment.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { JobComponent } from './components/job/job.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MomentModule
   ],
   providers: [],
   bootstrap: [AppComponent]
