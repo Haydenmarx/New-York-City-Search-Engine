@@ -1,0 +1,25 @@
+.job-card {
+  border: 1px solid black;
+  margin-left: 10vw;
+  width: 80vw;
+  margin-bottom: 50px;
+}
+
+.job-card > .job-title {
+  margin-bottom: 0px;
+  background-color: lightsteelblue;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  font-size: .8em;
+  cursor: pointer;
+}
+
+.job-card > .job-title > h1 {
+  margin: 0px;
+  padding: 0px 20px;
+}
+
+.job-card > h2, .job-card > h4 {
+  margin: 0px;
+}

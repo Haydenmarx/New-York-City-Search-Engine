@@ -1,34 +1,38 @@
-<li>
-  <h1>{{job.civil_service_title}} : {{job.business_title}} || HIRING FOR {{job.__of_positions}} POSITION<span *ngIf="(job.__of_positions != 1)">S</span></h1> 
-  <h2>{{job.agency}} || {{job.division_work_unit}} || {{job.job_category}}</h2>
-  <h2>Salary: {{job.salary_range_from}} - {{job.salary_range_to}} | {{job.salary_frequency}} | </h2>
-
-  <h4 (click)="toggle('job_description')" >Job Description:</h4>
-  <p *ngIf="job_description" >{{job.job_description}}</p>
-
-  <h4 (click)="toggle('minimmum_qual_requirements')" >Minimum Qualifications/Requirements:</h4>
-  <p *ngIf="minimmum_qual_requirements" >{{job.minimmum_qual_requirements}}</p>
-
-  <h4 (click)="toggle('preferred_skills')" >Preferred Skills:</h4>
-  <p *ngIf="preferred_skills" >{{job.preferred_skills}}</p>
-
-  <h4 (click)="toggle('hours_shift')" >Hours/Shift:</h4>
-  <p *ngIf="hours_shift" >{{job.hours_shift}}</p>
-
-  <h4 (click)="toggle('to_apply')" >Application Information:</h4>
-  <p *ngIf="to_apply" >{{job.to_apply}}</p>
-
-  <p>{{job.job_id}} || {{job.full_time_part_time_indicator}} || {{job.posting_type}} || {{job.residency_requirement}}</p>
-  <p>{{job.title_code_no}} || {{job.level}}</p>
-  <p>Location: {{job.work_location}} {{job.work_location_1}}</p>
-  <div>
-    <span>
-      Posted: {{job.posting_date}}
-    </span> || <span>
-      Updated: {{job.posting_updated}}
-    </span> || <span>
-      Process Date: Updated: {{job.process_date}}
-    </span>
+<li (click)="toggle('display')" class="job-card">
+  <div class="job-title">
+    <h1>{{job.civil_service_title}} : {{job.business_title}}</h1>
+    <h1>Hiring For {{job.__of_positions}} Position<span *ngIf="(job.__of_positions != 1)">s</span></h1>
   </div>
-  <hr />
+  <div *ngIf="display">
+      <h2>{{job.agency}} || {{job.division_work_unit}} || {{job.job_category}}</h2>
+      <h2>Salary: {{job.salary_range_from}} - {{job.salary_range_to}} | {{job.salary_frequency}} | </h2>
+    
+      <h4 (click)="toggle('job_description'); $event.stopPropagation();" >Job Description:</h4>
+      <p *ngIf="job_description" [innerHTML]="job.job_description"></p>
+    
+      <h4 (click)="toggle('minimum_qual_requirements'); $event.stopPropagation();" >Minimum Qualifications/Requirements:</h4>
+      <p *ngIf="minimum_qual_requirements" [innerHTML]="job.minimum_qual_requirements" ></p>
+    
+      <h4 (click)="toggle('preferred_skills'); $event.stopPropagation();" >Preferred Skills:</h4>
+      <p *ngIf="preferred_skills" [innerHTML]="job.preferred_skills"></p>
+    
+      <h4 (click)="toggle('hours_shift'); $event.stopPropagation();" >Hours/Shift:</h4>
+      <p *ngIf="hours_shift" [innerHTML]="job.hours_shift"></p>
+    
+      <h4 (click)="toggle('to_apply'); $event.stopPropagation();" >Application Information:</h4>
+      <p *ngIf="to_apply" [innerHTML]="job.to_apply"></p>
+    
+      <p>{{job.job_id}} || {{job.full_time_part_time_indicator}} || {{job.posting_type}} || {{job.residency_requirement}}</p>
+      <p>{{job.title_code_no}} || {{job.level}}</p>
+      <p>Location: {{job.work_location}} {{job.work_location_1}}</p>
+      <div>
+        <span>
+          Posted: {{job.posting_date}}
+        </span> || <span>
+          Updated: {{job.posting_updated}}
+        </span> || <span>
+          Process Date: Updated: {{job.process_date}}
+        </span>
+      </div>
+  </div>
 </li>
