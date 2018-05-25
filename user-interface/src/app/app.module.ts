@@ -11,6 +11,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.component';
 import { EntryComponent } from './components/entry/entry.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { JobsListComponent } from './components/jobs-list/jobs-list.component';
+import { JobComponent } from './components/job/job.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ProfileComponent,
     FourOhFourComponent,
     EntryComponent,
-    NavbarComponent
+    NavbarComponent,
+    JobsListComponent,
+    JobComponent
   ],
   imports: [
     BrowserModule,
