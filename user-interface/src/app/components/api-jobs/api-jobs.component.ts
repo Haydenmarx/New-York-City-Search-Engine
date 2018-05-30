@@ -128,6 +128,7 @@ export class ApiJobsComponent implements OnInit {
   selectedCivilServiceTitle = this.civilServiceTitle[0];
 
   toggleClicked = (item, selection) => {
+    this.job[selection] = item.title;
     const selected = 'selected' + selection.substring(0, 1).toUpperCase() + selection.substring(1);
     if (item.clicked) {
       item.clicked = !item.clicked;
