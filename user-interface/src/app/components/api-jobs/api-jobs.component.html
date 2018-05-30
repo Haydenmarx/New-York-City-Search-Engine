@@ -1,5 +1,8 @@
 <div>
-  <h1 (click)="toggleMinified()">{{title}}</h1>
+  <div>
+      <h1 (click)="toggleMinified()">{{title}}</h1>
+      <button (click)="removeFeed('jobs', index)">Delete</button>      
+  </div>
   <div *ngIf="!minified">
     <h4>Selected Agency: {{selectedAgencies.title}}</h4>
     <select>

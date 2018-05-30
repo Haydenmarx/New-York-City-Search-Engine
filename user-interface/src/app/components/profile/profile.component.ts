@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UsersService } from '../../users.service';
+import { Job } from '../../job';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,21 @@ export class ProfileComponent implements OnInit {
   @Input() toggleLoggedIn: any;
   @Input() removeUser: any;
   @Input() updateUsers: any;
+  @Input() queries: any = {jobs: []};
   displayname: string;
+  unsavedQueries = {jobs: []};
+  index = 0;
+
+  job = {
+    query: 'https://data.cityofnewyork.us/resource/swhp-yxa4.json?',
+    title: 'Job Search: Any',
+    agencies: 'Any',
+    postingType: 'Any',
+    numberOfPositions: 'Any',
+    businessTitle: 'Any',
+    civilServiceTitle: 'Any',
+    index: 0
+  };
 
   constructor(private usersService: UsersService) { }
 
@@ -30,6 +45,21 @@ export class ProfileComponent implements OnInit {
     this.usersService.updateUser(updatedUser).subscribe( user => {
       this.updateUsers(user);
     });
+  }
+
+  addFeed = () => {
+    this.unsavedQueries.jobs.unshift(new Job(this.index));
+    this.index++;
+  }
+
+  updateFeed = (api: string, index: number, param: string, data: string) => {
+    const found = this.unsavedQueries[api].findIndex(job => job.index === index);
+    found[param] = data;
+  }
+
+  removeFeed = (api: string, index: number) => {
+    const found = this.unsavedQueries[api].findIndex(job => job.index === index);
+    this.unsavedQueries[api].splice(found, 1);
   }
 
   ngOnInit() {

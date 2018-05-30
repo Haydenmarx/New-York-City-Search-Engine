@@ -12,6 +12,7 @@ export class MainComponent implements OnInit {
   @Input() removeUser: any;
   @Input() updateUsers: any;
   page = 'Home';
+  queries = {jobs: []};
 
   setMain = (page: string) => {
     if (page === 'Home') {
