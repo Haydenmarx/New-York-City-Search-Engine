@@ -9,6 +9,7 @@ export class JobsListComponent implements OnInit {
 
   constructor() { }
 
+  expanded = false;
   jobs = [
     {
         '__of_positions': '1',
@@ -441,6 +442,10 @@ export class JobsListComponent implements OnInit {
         'work_location_1': 'Brooklyn, NY'
     }
   ];
+
+  toggleExpanded = () => {
+      this.expanded = !this.expanded;
+  }
 
   ngOnInit() {
     this.jobs = this.jobs.map(job => {

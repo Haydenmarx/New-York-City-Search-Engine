@@ -1,14 +1,8 @@
 <div id="user-profile">
-  <!-- <app-navbar
-    [user]="user"
-    [toggleLoggedIn]="toggleLoggedIn"
-  >
-  </app-navbar> -->
   <div id="user-profile-body">
     <div id="user-profile-feeds">
-      <h1 *ngIf="(user.displayname === null)" >{{user.username}}'s Feeds:</h1>
-      <h1 *ngIf="(user.displayname !== null)" >{{user.displayname}}'s Feeds:</h1>
-      <button>Edit Feeds</button>
+      <app-api-jobs></app-api-jobs>
+      <button>Add Feed</button>
     </div>
     <div id="user-profile-edit">
       <h1 *ngIf="(user.displayname === null)" >{{user.username}}'s Profile</h1>

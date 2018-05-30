@@ -1,29 +1,29 @@
 <li (click)="toggle('display')" class="job-card">
-  <div class="job-title">
+  <div class="job-title job-title-{{display}}">
     <h1>{{job.civil_service_title}} : {{job.business_title}}</h1>
     <h1>Hiring For {{job.__of_positions}} Position<span *ngIf="(job.__of_positions != 1)">s</span></h1>
   </div>
-  <div *ngIf="display">
+  <div *ngIf="display" (click)="$event.stopPropagation();">
       <h2><span>{{job.agency}}</span> <span>{{job.division_work_unit}}</span><span>{{job.job_category}}</span></h2>
       <h2>{{job.salary_frequency}} Salary Range: {{job.salary_range_from | currency}} - {{job.salary_range_to | currency}} </h2>
     
-      <h2 (click)="toggle('job_description'); $event.stopPropagation();" >Job Description:</h2>
+      <h2 class="{{job_description}}" (click)="toggle('job_description')" >Job Description:</h2>
       <p *ngIf="job_description" [innerHTML]="job.job_description"></p>
     
-      <h2 (click)="toggle('minimum_qual_requirements'); $event.stopPropagation();" >Minimum Qualifications/Requirements:</h2>
+      <h2 class="{{minimum_qual_requirements}}" (click)="toggle('minimum_qual_requirements')" >Minimum Qualifications/Requirements:</h2>
       <p *ngIf="minimum_qual_requirements" [innerHTML]="job.minimum_qual_requirements" ></p>
     
-      <h2 (click)="toggle('preferred_skills'); $event.stopPropagation();" >Preferred Skills:</h2>
+      <h2 class="{{preferred_skills}}" (click)="toggle('preferred_skills')" >Preferred Skills:</h2>
       <p *ngIf="preferred_skills" [innerHTML]="job.preferred_skills"></p>
     
-      <h2 (click)="toggle('hours_shift'); $event.stopPropagation();" >Hours/Shift:</h2>
+      <h2 class="{{hours_shift}}" (click)="toggle('hours_shift')" >Hours/Shift:</h2>
       <p *ngIf="hours_shift" [innerHTML]="job.hours_shift"></p>
     
-      <h2 (click)="toggle('to_apply'); $event.stopPropagation();" >Application Information:</h2>
+      <h2 class="{{to_apply}}" (click)="toggle('to_apply')" >Application Information:</h2>
       <p *ngIf="to_apply" [innerHTML]="job.to_apply"></p>
-      <h2 (click)="toggle('residency_requirement'); $event.stopPropagation();" >Residency Requirements:</h2>
+      <h2 class="{{residency_requirement}}" (click)="toggle('residency_requirement')" >Residency Requirements:</h2>
       <p *ngIf="residency_requirement" >{{job.residency_requirement}}</p>
-      <h2 (click)="toggle('additional_information'); $event.stopPropagation();" >Additional Information:</h2>
+      <h2 class="{{additional_information}}" (click)="toggle('additional_information')" >Additional Information:</h2>
       <div *ngIf="additional_information" class="job-misc">
         <div>
           <h4>Job ID:</h4>
@@ -59,11 +59,11 @@
         <span>
             <strong>Posted:</strong> {{job.posting_date | amDateFormat:'LL' }}
         </span>
-        <span> || </span>
+        <!-- <span> || </span> -->
         <span>
             <strong>Updated:</strong> {{job.posting_updated | amTimeAgo }}
         </span>
-        <span> || </span>        
+        <!-- <span> || </span>         -->
         <span>
           <strong>Process Date:</strong> {{job.process_date | amDateFormat:'LL' }}
         </span>

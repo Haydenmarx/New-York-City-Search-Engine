@@ -1,0 +1,41 @@
+<div>
+  <h1 (click)="toggleMinified()">{{title}}</h1>
+  <div *ngIf="!minified">
+    <h4>Selected Agency: {{selectedAgencies.title}}</h4>
+    <select>
+      <option *ngFor="let agency of agencies" (click)="toggleClicked(agency, 'agencies')">
+        {{agency.title}}
+      </option>
+    </select>
+    <hr />
+    <h4>Selected Posting Type: {{selectedPostingType.title}}</h4>
+    <select>
+      <option *ngFor="let type of postingType" (click)="toggleClicked(type, 'postingType')">
+        {{type.title}}
+      </option>
+    </select>
+    <hr />
+    <h4>Selected Number of Open Positions Range: {{selectedNumberOfPositions.title}}</h4>
+    <select>
+      <option *ngFor="let range of numberOfPositions" (click)="toggleClicked(range, 'numberOfPositions')">
+        {{range.title}}
+      </option>
+    </select>
+    <hr />
+    <h4>Selected Business Title: {{selectedBusinessTitle.title}}</h4>
+    <select>
+      <option *ngFor="let business of businessTitle" (click)="toggleClicked(business, 'businessTitle')">
+        {{business.title}}
+      </option>
+    </select>
+    <hr />
+    <h4>Selected Civil Service Title: {{selectedCivilServiceTitle.title}}</h4>
+    <select>
+      <option *ngFor="let title of civilServiceTitle" (click)="toggleClicked(title, 'civilServiceTitle')">
+        {{title.title}}
+      </option>
+    </select>
+    <hr />
+    <button (click)="searchJobs()">Search Jobs</button>
+  </div>
+</div>

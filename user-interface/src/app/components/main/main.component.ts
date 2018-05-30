@@ -21,6 +21,18 @@ export class MainComponent implements OnInit {
     }
   }
 
+  /*
+  ** Jobs are saved in main in array
+  **
+  ** if array is empty -- link to profile to add apis
+  **
+  ** profile shows apis + button to add more which creates one
+  **
+  ** it is not pushed until saved
+  ** also update and delete is in title
+  **
+  */
+
   constructor() { }
 
   ngOnInit() {

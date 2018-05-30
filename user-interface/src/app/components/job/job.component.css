@@ -3,6 +3,7 @@
   margin-bottom: 5px;
 }
 
+
 .job-card > .job-title {
   margin-bottom: 0px;
   background-color: lightsteelblue;
@@ -11,6 +12,11 @@
   justify-content: space-between;
   font-size: .8em;
   cursor: pointer;
+}
+
+.job-card > .job-title-true {
+  color: lightsteelblue;
+  background-color: black;  
 }
 
 .job-card > .job-title > h1 {
@@ -38,6 +44,12 @@
   background-color: rgba(128, 128, 128, 0.637);  
   padding-right: 5%;
 }
+
+.job-card > div > .true {
+  background-color: black!important;
+  color: rgb(255, 255, 255);
+}
+
 
 .job-card > div > h2:nth-of-type(3) {
   border-top: 1px solid black;

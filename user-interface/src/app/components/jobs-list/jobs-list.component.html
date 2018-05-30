@@ -1,3 +1,6 @@
-<ul>
-  <app-job *ngFor="let job of jobs" [job]="job"></app-job>
-</ul>
+<div>
+    <h1 (click)="toggleExpanded()" >[[API NAME (Job) ]] Search: (Department) of (Information Technology), [[category]] of [[search term]] and [[search term]] and [[search term]], order by [[search term]]</h1>
+    <ul *ngIf="expanded" >
+      <app-job *ngFor="let job of jobs" [job]="job"></app-job>
+    </ul>        
+</div>

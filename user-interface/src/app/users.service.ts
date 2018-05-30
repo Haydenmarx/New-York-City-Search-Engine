@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,9 +9,10 @@ export class UsersService {
 
   constructor(private httpClient: HttpClient) { }
 
-  url = '/api/users';
+  url = `${environment.apiHost}/api/users`;
 
   getUsers = () => {
+    console.log('||', this.url, '||');
     return this.httpClient.get(this.url);
   }
 

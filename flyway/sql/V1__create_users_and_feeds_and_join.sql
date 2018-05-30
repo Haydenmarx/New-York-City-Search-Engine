@@ -6,13 +6,19 @@ create table USERS (
 
 create table FEEDS (
   ID serial primary key,
-  URL varchar NOT NULL,
-  PARAMS varchar ARRAY
+  USER_ID integer references USERS,
+  API_TABLE_NAME varchar,
+  API_ID integer
 );
 
-create table CHAPTERS (
+
+
+create table API-JOBS (
   ID serial primary key,
   USER_ID integer references USERS,
-  FEED_ID integer references FEEDS,
-  PARAMS varchar ARRAY  
+  AGENCY varchar,
+  POSTING_TYPE varchar,
+  NUMBER_OF_POSITIONS varchar,
+  BUSINESS_TITLE varchar,
+  CIVIL_SERVICE_TITLE varchar,
 );
