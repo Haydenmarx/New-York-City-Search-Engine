@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   @Input() updateUsers: any;
   page = 'Home';
   queries = {jobs: []};
+  jobs = [];
 
   setMain = (page: string) => {
     if (page === 'Home') {
@@ -37,6 +38,16 @@ export class MainComponent implements OnInit {
       updatedQueries[api] = queries;
       this.queries = updatedQueries;
       console.log(this.queries);
+      this.getJobs();
+    });
+  }
+
+  getJobs = () => {
+    this.jobs = [];
+    this.queries.jobs.forEach( query => {
+      this.jobsService.getJobs(query.query).subscribe( list => {
+        this.jobs.push(list);
+      });
     });
   }
 
@@ -63,7 +74,7 @@ export class MainComponent implements OnInit {
     });
   }
 
-  constructor(private feedsService: FeedsService) { }
+  constructor(private feedsService: FeedsService, private jobsService: JobsService) { }
 
   ngOnInit() {
     this.getQueries('jobs');

@@ -18,8 +18,9 @@
   >
   </app-profile>
   <div *ngIf="(page==='Home')" >
-    <!-- <h1 (click)="setMain('Profile')" *ngIf="(user.displayname === null)" >{{user.username}}'s Feeds:</h1>
-    <h1 (click)="setMain('Profile')" *ngIf="(user.displayname !== null)">{{user.displayname}}'s Feeds:</h1> -->
-    <app-jobs-list></app-jobs-list>
+    <app-jobs-list
+      [jobs]="jobs"
+    >
+    </app-jobs-list>
   </div>
 </div>
