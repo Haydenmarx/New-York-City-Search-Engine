@@ -10,6 +10,7 @@ export class JobsListComponent implements OnInit {
   constructor() { }
 
   @Input() jobs: any;
+  @Input() queries: any;
   expanded = false;
 
   toggleExpanded = () => {

@@ -1,6 +1,8 @@
 <div>
-    <h1 (click)="toggleExpanded()" >[[API NAME (Job) ]] Search: (Department) of (Information Technology), [[category]] of [[search term]] and [[search term]] and [[search term]], order by [[search term]]</h1>
+    <h1 *ngFor="let query of queries.jobs" (click)="toggleExpanded()" >{{query.title}}</h1>
     <ul *ngIf="expanded" >
-      <app-job *ngFor="let job of jobs" [job]="job"></app-job>
+      <div *ngFor="let section of jobs">
+          <app-job *ngFor="let job of section" [job]="job"></app-job>
+      </div>
     </ul>        
 </div>
