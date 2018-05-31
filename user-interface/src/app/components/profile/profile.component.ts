@@ -14,8 +14,9 @@ export class ProfileComponent implements OnInit {
   @Input() removeUser: any;
   @Input() updateUsers: any;
   @Input() queries: any = {jobs: []};
-
   @Input() addToQueries: any;
+  @Input() updateQuery: any;
+  @Input() removeQuery: any;
 
   displayname: string;
   unsavedQueries = {jobs: []};
@@ -52,7 +53,6 @@ export class ProfileComponent implements OnInit {
 
   addFeed = () => {
     const job = new Job(this.index, this.user.id);
-    console.log(job);
     this.unsavedQueries.jobs.unshift(job);
     this.index++;
   }
@@ -68,26 +68,17 @@ export class ProfileComponent implements OnInit {
   }
 
   saveFeed = (api: string, id: number) => {
-    console.log(this.user.id);
     const found = this.unsavedQueries[api].findIndex(job => job.id === id);
-    console.log(this.unsavedQueries[api][found]);
     this.addToQueries(api, this.unsavedQueries[api][found]);
     this.unsavedQueries[api].splice(found, 1);
   }
 
-  updateQuery = (api: string, id: number, param: string, data: string) => {
-    // const found = this.unsavedQueries[api].findIndex(job => job.id === id);
-    // found[param] = data;
+  updateEntry = (api: string, id: number) => {
+    this.updateQuery(api, id);
   }
 
-  removeQuery = (api: string, id: number) => {
-    // const found = this.unsavedQueries[api].findIndex(job => job.id === id);
-    // this.unsavedQueries[api].splice(found, 1);
-  }
-
-  saveQuery = () => {
-    // update
-    // push to database
+  removeEntry = (api: string, id: number) => {
+    this.removeQuery(api, id);
   }
 
   ngOnInit() {

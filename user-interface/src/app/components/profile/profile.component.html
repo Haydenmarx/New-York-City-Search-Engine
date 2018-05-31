@@ -14,9 +14,8 @@
       <app-api-jobs 
         *ngFor="let query of queries.jobs"
         [job]=query
-        [removeFeed]="removeQuery"
-        [saveFeed]="saveFeed"
-        [updateFeed]="updateQuery"
+        [saveFeed]="updateEntry"
+        [removeFeed]="removeEntry"
       >  
       </app-api-jobs>      
     </div>

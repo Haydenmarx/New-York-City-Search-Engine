@@ -26,37 +26,47 @@ export class MainComponent implements OnInit {
   }
 
   addToQueries = (api: string, call: Job) => {
-    console.log('call:', call);
     delete call.id;
     this.feedsService.updateFeed(call).subscribe(feed => this.queries[api].push(feed));
   }
 
-  getQueries = () => {
+  getQueries = (api: string) => {
     this.feedsService.getFeeds().subscribe( queries => {
       let updatedQueries: any;
       updatedQueries = {...this.queries};
-      updatedQueries.jobs = queries;
+      updatedQueries[api] = queries;
       this.queries = updatedQueries;
       console.log(this.queries);
     });
   }
 
-  /*
-  ** Jobs are saved in main in array
-  **
-  ** if array is empty -- link to profile to add apis
-  **
-  ** profile shows apis + button to add more which creates one
-  **
-  ** it is not pushed until saved
-  ** also update and delete is in title
-  **
-  */
+  updateQuery = (api: string, id: number) => {
+    const result = this.queries[api].find( job => job.id === id);
+    const index = this.queries[api].findIndex( job => job.id === id);
+    this.feedsService.updateFeed(result).subscribe( feed => {
+      let updatedQueries: any;
+      updatedQueries = {...this.queries};
+      updatedQueries[api][index] = feed;
+      this.queries = updatedQueries;
+    });
+  }
+
+  removeQuery = (api: string, id: number) => {
+    const index = this.queries[api].findIndex( job => job.id === id);
+    this.feedsService.deleteFeed(id).subscribe(res => {
+      if (res === 'OK') {
+        let updatedQueries: any;
+        updatedQueries = {...this.queries};
+        updatedQueries[api].splice(index, 1);
+        this.queries = updatedQueries;
+      }
+    });
+  }
 
   constructor(private feedsService: FeedsService) { }
 
   ngOnInit() {
-    this.getQueries();
+    this.getQueries('jobs');
   }
 
 }
