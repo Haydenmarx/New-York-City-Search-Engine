@@ -3,16 +3,33 @@
   height: 270px;
   flex-direction: column;
   justify-content: flex-start;
+  width: 80%;
+  margin: auto;  
 }
 
 #log-in > label:not(.error-message) {
-  padding-top: 20px;
+  padding-top: 60px;
+  color: #009DDC;
+  font-weight: 600;
+  font-size: 1.5em;
+  letter-spacing: .06em;
 }
 
 #log-in > button {
   margin-top: auto;
   margin-bottom: 20px;
   cursor: pointer;
+  padding: 8px 0px;
+  color: white;
+  margin: auto;  
+  background-color: #009DDC;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#log-in > button:hover {
+  font-weight: 600;
+  background-color: #024196;
 }
 
 .error-message {
@@ -22,4 +39,6 @@
   font-weight: 600;
   font-size: 1.4em;
   margin-bottom: -20px;
+  width: 140%;
+  margin-left: -20%;
 } 

@@ -19,12 +19,12 @@
   border: 0px solid black;
   cursor: pointer;
   font-size: 1.3em;
+  color: white;  
   background-color: #009DDC;
 }
 
 #entry-form > div:first-of-type > button:hover {
   font-weight: 600;
-  color: white;
   background-color: #024196;
 }
 
