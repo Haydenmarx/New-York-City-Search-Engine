@@ -7,7 +7,7 @@ export class Job {
   businessTitle: string;
   civilServiceTitle: string;
   id: string;
-  user_id: string;
+  userId: string;
   constructor(index, id) {
     this.query = 'https://data.cityofnewyork.us/resource/swhp-yxa4.json?';
     this.title = 'Job Search: Any';
@@ -17,6 +17,6 @@ export class Job {
     this.businessTitle = 'Any';
     this.civilServiceTitle = 'Any';
     this.id = index;
-    this.user_id = id;
+    this.userId = id;
   }
 }

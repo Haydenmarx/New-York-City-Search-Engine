@@ -53,6 +53,7 @@ export class ProfileComponent implements OnInit {
 
   addFeed = () => {
     const job = new Job(this.index, this.user.id);
+    console.log(job);
     this.unsavedQueries.jobs.unshift(job);
     this.index++;
   }

@@ -24,6 +24,7 @@ export class FeedsService {
   }
 
   updateFeed = (feed: any) => {
+    console.log(feed);
     return this.httpClient.post(this.url, feed);
   }
 }
