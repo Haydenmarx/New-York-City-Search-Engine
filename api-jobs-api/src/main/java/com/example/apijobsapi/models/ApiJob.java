@@ -13,7 +13,7 @@ public class ApiJob {
   private Long id;
 
   @Column(name = "USER_ID")
-  private Long user_id;
+  private Long userId;
 
   @Column(name = "AGENCIES")
   private String agencies;

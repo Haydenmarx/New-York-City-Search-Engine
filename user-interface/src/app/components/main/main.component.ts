@@ -31,7 +31,7 @@ export class MainComponent implements OnInit {
   }
 
   getQueries = (api: string) => {
-    this.feedsService.getFeeds().subscribe( queries => {
+    this.feedsService.getUserFeeds(this.user.id).subscribe( queries => {
       let updatedQueries: any;
       updatedQueries = {...this.queries};
       updatedQueries[api] = queries;

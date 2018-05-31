@@ -17,6 +17,11 @@ public class ApiJobsController {
     return apiJobsApiRepository.findAll();
   }
 
+  @GetMapping("/{userId}")
+  public Iterable<ApiJob> findByUserId(@PathVariable Long userId) {
+    return apiJobsApiRepository.findByUserId(userId);
+  }
+
   @DeleteMapping("/{apiJobId}")
   public HttpStatus deleteFeedsById(@PathVariable Long apiJobId) {
     apiJobsApiRepository.delete(apiJobId);

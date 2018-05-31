@@ -10,9 +10,13 @@ export class FeedsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getFeeds = () => {
+  getAllFeeds = () => {
     console.log('||', this.url, '||');
     return this.httpClient.get(this.url);
+  }
+
+  getUserFeeds = (userId) => {
+    return this.httpClient.get(this.url.concat('/', userId));
   }
 
   deleteFeed = (feedId) => {

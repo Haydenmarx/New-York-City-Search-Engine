@@ -13,10 +13,13 @@ public class Feed {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "URL")
-  private String url;
+  @Column(name = "USER_ID")
+  private Long userId;
 
-  @Column(name = "PARAMS")
+  @Column(name = "API_TABLE_NAME")
   private String params;
+
+  @Column(name = "API_ID")
+  private Long apiId;
 
 }
