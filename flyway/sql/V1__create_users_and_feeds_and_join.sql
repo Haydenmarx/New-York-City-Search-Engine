@@ -13,12 +13,15 @@ create table FEEDS (
 
 
 
-create table API-JOBS (
+create table API_JOBS (
   ID serial primary key,
   USER_ID integer references USERS,
-  AGENCY varchar,
-  POSTING_TYPE varchar,
-  NUMBER_OF_POSITIONS varchar,
-  BUSINESS_TITLE varchar,
-  CIVIL_SERVICE_TITLE varchar,
+  AGENCIES varchar,
+  POSTINGTYPE varchar,
+  NUMBEROFPOSITIONS varchar,
+  BUSINESSTITLE varchar,
+  CIVILSERVICETITLE varchar,
+  QUERY varchar,
+  TITLE varchar
 );
+

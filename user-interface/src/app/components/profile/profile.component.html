@@ -5,10 +5,20 @@
         *ngFor="let unsavedJob of unsavedQueries.jobs"
         [job]=unsavedJob
         [removeFeed]="removeFeed"
+        [saveFeed]="saveFeed"
         [updateFeed]="updateFeed"
       >  
       </app-api-jobs>
       <button (click)="addFeed()">Add Feed</button>
+      <hr />
+      <app-api-jobs 
+        *ngFor="let query of queries.jobs"
+        [job]=query
+        [removeFeed]="removeQuery"
+        [saveFeed]="saveFeed"
+        [updateFeed]="updateQuery"
+      >  
+      </app-api-jobs>      
     </div>
     <div id="user-profile-edit">
       <h1 *ngIf="(user.displayname === null)" >{{user.username}}'s Profile</h1>

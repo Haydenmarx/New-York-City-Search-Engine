@@ -16,16 +16,17 @@ export class ApiJobsComponent implements OnInit {
     numberOfPositions: 'Any',
     businessTitle: 'Any',
     civilServiceTitle: 'Any',
-    index: null
+    id: null
   };
   @Input() removeFeed: any;
+  @Input() saveFeed: any;
   @Input() updateFeed: any;
 
   queryStart = 'https://data.cityofnewyork.us/resource/swhp-yxa4.json?';
   query = 'https://data.cityofnewyork.us/resource/swhp-yxa4.json?';
   title = 'Job Search:';
   minified = true;
-  index: number;
+  id: number;
 
   agencies = [
     {title: 'Any', clicked: false},
@@ -134,8 +135,6 @@ export class ApiJobsComponent implements OnInit {
       item.clicked = !item.clicked;
       this[selection][0].clicked = true;
       this[selected] = this[selection][0];
-
-      this.job.title = 'fake';
     } else {
       this[selected].clicked = false;
       item.clicked = true;
@@ -177,6 +176,8 @@ export class ApiJobsComponent implements OnInit {
       this.title += ' Any';
     }
     this.query = this.query.substring(0, this.query.length - 1);
+    this.job.query = this.query;
+    this.job.title = this.title;
   }
 
   searchJobs = () => {
@@ -205,7 +206,7 @@ export class ApiJobsComponent implements OnInit {
     this.selectedCivilServiceTitle = this.civilServiceTitle.find( selected => selected.title === this.job.civilServiceTitle);
     this.selectedCivilServiceTitle.clicked = true;
 
-    this.index = this.job.index;
+    this.id = this.job.id;
   }
 
 }

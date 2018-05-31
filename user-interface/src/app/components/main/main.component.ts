@@ -1,4 +1,7 @@
+import { FeedsService } from './../../feeds.service';
+import { JobsService } from './../../jobs.service';
 import { Component, OnInit, Input } from '@angular/core';
+import {Job} from '../../job';
 
 @Component({
   selector: 'app-main',
@@ -22,6 +25,22 @@ export class MainComponent implements OnInit {
     }
   }
 
+  addToQueries = (api: string, call: Job) => {
+    console.log('call:', call);
+    delete call.id;
+    this.feedsService.updateFeed(call).subscribe(feed => this.queries[api].push(feed));
+  }
+
+  getQueries = () => {
+    this.feedsService.getFeeds().subscribe( queries => {
+      let updatedQueries: any;
+      updatedQueries = {...this.queries};
+      updatedQueries.jobs = queries;
+      this.queries = updatedQueries;
+      console.log(this.queries);
+    });
+  }
+
   /*
   ** Jobs are saved in main in array
   **
@@ -34,9 +53,10 @@ export class MainComponent implements OnInit {
   **
   */
 
-  constructor() { }
+  constructor(private feedsService: FeedsService) { }
 
   ngOnInit() {
+    this.getQueries();
   }
 
 }
