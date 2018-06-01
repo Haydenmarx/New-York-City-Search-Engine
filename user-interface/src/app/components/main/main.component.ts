@@ -77,13 +77,16 @@ export class MainComponent implements OnInit {
   formatJobs = (jobs) => {
     console.log('Jerbs');
     jobs = jobs.map(job => {
-        job.minimum_qual_requirements = job.minimum_qual_requirements.replace( /(\d\.)+/g, (li, item) => {
-         if (item === '1.') {
-            return li;
-         } else {
-            return '<br /><br />' + li;
-         }
-        });
+        job.minimum_qual_requirements =
+        job.minimum_qual_requirements === undefined ?
+          ''
+        : job.minimum_qual_requirements.replace( /(\d\.)+/g, (li, item) => {
+          if (item === '1.') {
+              return li;
+          } else {
+              return '<br /><br />' + li;
+          }
+          });
         job.job_description = job.job_description.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
         job.preferred_skills = job.preferred_skills.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
         job.to_apply = job.to_apply.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
