@@ -15,6 +15,7 @@ import { JobsListComponent } from './components/jobs-list/jobs-list.component';
 import { JobComponent } from './components/job/job.component';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { ApiJobsComponent } from './components/api-jobs/api-jobs.component';
+import { JobCardComponent } from './components/job-card/job-card.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ApiJobsComponent } from './components/api-jobs/api-jobs.component';
     NavbarComponent,
     JobsListComponent,
     JobComponent,
-    ApiJobsComponent
+    ApiJobsComponent,
+    JobCardComponent
   ],
   imports: [
     BrowserModule,

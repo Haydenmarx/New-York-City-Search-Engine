@@ -1,0 +1,6 @@
+<div (click)="log()">
+    <h1 (click)="toggleExpanded()">{{title}}</h1>
+    <ul *ngIf="expanded" >
+        <app-job *ngFor="let job of section" [job]="job"></app-job>
+    </ul>    
+</div>
