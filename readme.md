@@ -11,8 +11,12 @@
 
 ##### [Trello](https://trello.com/b/U2CkMGhE/new-york)
 
-### How to start:
+### [Live](http://hayden-web-management-app.s3-website-us-west-1.amazonaws.com/login)
 
-- `docker-compose up` in root will start the both the front-end and back end
+### How to start locally:
+
+- `docker-compose up` in root will start the back end
+- `docker-compose up -f docker-compose-full.yml` in root will start the both the front-end and back end
 -  `npm start` or `npm run start` in the `user-interface` folder will start the angular application.
 -  `npm run test` in the same folder will run the Jasmine tests.
+-  Feature tests can be run for the microservices using Selenide.
