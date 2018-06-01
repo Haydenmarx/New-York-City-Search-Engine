@@ -87,9 +87,25 @@ export class MainComponent implements OnInit {
               return '<br /><br />' + li;
           }
           });
-        job.job_description = job.job_description.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
-        job.preferred_skills = job.preferred_skills.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
-        job.to_apply = job.to_apply.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+
+        job.job_description =
+        job.job_description === undefined ?
+          ''
+        :
+        job.job_description.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+
+        job.preferred_skills =
+        job.preferred_skills === undefined ?
+          ''
+        :
+        job.preferred_skills.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+
+        job.to_apply =
+        job.to_apply === undefined ?
+          ''
+        :
+        job.to_apply.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+
         return job;
     });
     this.jobs.push(jobs);
