@@ -92,7 +92,15 @@ export class MainComponent implements OnInit {
         job.job_description === undefined ?
           ''
         :
-        job.job_description.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+        job.job_description.replace( /(â€¢\t|â€¢|â€™)+/g, (linebreak) => {
+          if (linebreak === 'â€™') {
+          console.log('my break is a ', linebreak);
+            return '\'';
+          }  else {
+            console.log('my break is a ', linebreak);
+            return '<br /><br />';
+          }
+        });
 
         job.preferred_skills =
         job.preferred_skills === undefined ?
