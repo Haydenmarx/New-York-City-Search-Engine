@@ -36,6 +36,7 @@
 
 #user-profile-edit > div:nth-child(1) > h1 {
   color: #024196;
+  text-align: center;
 }
 
 #user-profile-edit > div:nth-child(1) > label {
