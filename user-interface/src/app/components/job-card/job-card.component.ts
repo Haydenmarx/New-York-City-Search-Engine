@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class JobCardComponent implements OnInit {
 
-  @Input() title: any;
-  @Input() section: any;
+  @Input() title: any = '';
+  @Input() section: any = [];
   expanded = false;
 
   toggleExpanded = () => {

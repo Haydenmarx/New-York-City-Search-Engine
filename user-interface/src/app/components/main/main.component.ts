@@ -28,7 +28,10 @@ export class MainComponent implements OnInit {
 
   addToQueries = (api: string, call: Job) => {
     delete call.id;
-    this.feedsService.updateFeed(call).subscribe(feed => this.queries[api].push(feed));
+    this.feedsService.updateFeed(call).subscribe(feed => {
+      this.queries[api].push(feed);
+      this.getQueries('jobs');
+    });
   }
 
   getQueries = (api: string) => {
@@ -37,7 +40,7 @@ export class MainComponent implements OnInit {
       updatedQueries = {...this.queries};
       updatedQueries[api] = queries;
       this.queries = updatedQueries;
-      console.log(this.queries);
+      // console.log(this.queries);
       this.getJobs();
     });
   }
@@ -70,12 +73,13 @@ export class MainComponent implements OnInit {
         updatedQueries = {...this.queries};
         updatedQueries[api].splice(index, 1);
         this.queries = updatedQueries;
+        this.getQueries('jobs');
       }
     });
   }
 
   formatJobs = (jobs) => {
-    console.log('Jerbs');
+    // console.log('Jerbs');
     jobs = jobs.map(job => {
         job.minimum_qual_requirements =
         job.minimum_qual_requirements === undefined ?

@@ -1,3 +1,5 @@
+import { MomentModule } from 'angular2-moment/moment.module';
+import { JobComponent } from './../job/job.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { JobCardComponent } from './job-card.component';
@@ -8,7 +10,10 @@ describe('JobCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JobCardComponent ]
+      declarations: [ JobCardComponent, JobComponent ],
+      imports: [
+        MomentModule
+      ]
     })
     .compileComponents();
   }));

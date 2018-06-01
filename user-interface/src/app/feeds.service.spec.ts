@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { FeedsService } from './feeds.service';
@@ -5,7 +6,10 @@ import { FeedsService } from './feeds.service';
 describe('FeedsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [FeedsService]
+      providers: [FeedsService],
+      imports: [
+        HttpClientModule
+      ]
     });
   });
 

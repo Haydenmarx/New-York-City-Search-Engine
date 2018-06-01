@@ -1,3 +1,8 @@
+import { MomentModule } from 'angular2-moment/moment.module';
+import { ApiJobsComponent } from './../api-jobs/api-jobs.component';
+import { JobComponent } from './../job/job.component';
+import { JobCardComponent } from './../job-card/job-card.component';
+import { JobsListComponent } from './../jobs-list/jobs-list.component';
 import { NavbarComponent } from './../navbar/navbar.component';
 import { MainComponent } from './../main/main.component';
 import { SigninComponent } from './../signin/signin.component';
@@ -17,9 +22,16 @@ describe('EntryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EntryComponent, SigninComponent, LoginComponent, MainComponent, NavbarComponent, ProfileComponent ],
+      declarations: [
+        EntryComponent, SigninComponent, LoginComponent,
+        MainComponent,
+        NavbarComponent,
+        ProfileComponent, ApiJobsComponent,
+        JobsListComponent, JobCardComponent, JobComponent
+      ],
       imports: [
-        HttpClientModule, FormsModule, RouterTestingModule]
+        HttpClientModule, FormsModule, RouterTestingModule, MomentModule
+      ]
     })
     .compileComponents();
   }));

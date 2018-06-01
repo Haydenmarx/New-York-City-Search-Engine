@@ -1,3 +1,4 @@
+import { Job } from './../../job';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class JobComponent implements OnInit {
 
-  @Input() job: any;
+  @Input() job: any = new Job(9999, 9999);
   job_description = false;
   display = false;
   minimum_qual_requirements = false;

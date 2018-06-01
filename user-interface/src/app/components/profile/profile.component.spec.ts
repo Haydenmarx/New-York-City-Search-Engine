@@ -1,3 +1,4 @@
+import { ApiJobsComponent } from './../api-jobs/api-jobs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -10,7 +11,7 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ],
+      declarations: [ ProfileComponent, ApiJobsComponent ],
       imports: [ FormsModule,
       HttpClientModule ]
     })

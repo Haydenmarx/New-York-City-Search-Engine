@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { JobsService } from './jobs.service';
@@ -5,7 +6,10 @@ import { JobsService } from './jobs.service';
 describe('JobsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [JobsService]
+      providers: [JobsService],
+      imports: [
+        HttpClientModule
+      ]
     });
   });
 
