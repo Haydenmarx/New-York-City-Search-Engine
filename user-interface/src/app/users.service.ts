@@ -12,7 +12,7 @@ export class UsersService {
   url = `${environment.apiHost}/api/users`;
 
   getUsers = () => {
-    console.log('||', this.url, '||');
+    // console.log('||', this.url, '||');
     return this.httpClient.get(this.url);
   }
 

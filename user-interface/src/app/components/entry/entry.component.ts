@@ -74,7 +74,7 @@ export class EntryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.usersService.getUsers().subscribe( users => {this.users = users; console.log(users); } );
+    this.usersService.getUsers().subscribe( users => {this.users = users; /*console.log(users);*/ } );
     this.route.data
     .subscribe( data => {
       if (data.form === 'signup') {

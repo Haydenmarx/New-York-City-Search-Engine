@@ -9,7 +9,7 @@ export class JobsService {
   constructor(private httpClient: HttpClient) { }
 
   getJobs = (url) => {
-    console.log('||', url, '||');
+    // console.log('||', url, '||');
     return this.httpClient.get(url);
   }
 }

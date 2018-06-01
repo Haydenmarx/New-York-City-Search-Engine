@@ -11,7 +11,7 @@ export class FeedsService {
   constructor(private httpClient: HttpClient) { }
 
   getAllFeeds = () => {
-    console.log('||', this.url, '||');
+    // console.log('||', this.url, '||');
     return this.httpClient.get(this.url);
   }
 
@@ -24,7 +24,7 @@ export class FeedsService {
   }
 
   updateFeed = (feed: any) => {
-    console.log(feed);
+    // console.log(feed);
     return this.httpClient.post(this.url, feed);
   }
 }
