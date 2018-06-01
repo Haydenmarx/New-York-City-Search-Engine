@@ -1,7 +1,7 @@
 #user-profile {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 60px);
 }
 
 #user-profile-body {
@@ -15,12 +15,99 @@
   border-right: 1px solid black;
 }
 
+#user-profile-feeds > h1 {
+  text-align: center;
+  font-size: 5em;
+  margin-bottom: -20px;
+  text-decoration: underline;
+  color: #024196;
+}
+
 #user-profile-edit {
   flex: 1 1 40%;
   display: flex;
   flex-direction: column;
 }
 
+#user-profile-edit > div:nth-child(1) {
+  flex: 0 0 400px;
+  background-color: rgba(128, 128, 128, 0.39);
+}
+
+#user-profile-edit > div:nth-child(1) > h1 {
+  color: #024196;
+}
+
+#user-profile-edit > div:nth-child(1) > label {
+  color: #009DDC;
+  font-size: 1.5em;
+  font-weight: 600; 
+}
+
+
+#user-profile-edit > div:nth-child(1) > input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#user-profile-edit > div:nth-child(1) > button:nth-of-type(1) {
+  padding: 8px 0px;
+  color: white;
+  background-color: #009DDC;
+  width: 50%;
+  font-size: 1.2em;
+  background-color: green;
+  border-color: darkgreen;
+}
+
+#user-profile-edit > div:nth-child(1) > button:nth-of-type(1):hover {
+  background-color: darkgreen;
+}
+
+#user-profile-edit > div:nth-child(1) > button:nth-of-type(2) {
+  padding: 8px 0px;
+  color: white;
+  background-color: #009DDC;
+  width: 50%;
+  font-size: 1.2em;
+  background-color: red;
+  border-color: darkred;
+  
+}
+
+#user-profile-edit > div:nth-child(1) > button:nth-of-type(2):hover {
+  background-color: darkred;
+}
+
+
+#user-profile-edit > div:nth-child(2) {
+  max-height: calc(100% - 400px);
+  /* flex-shrink: 0;
+  flex-grow: 0;
+  overflow-y: scroll; */
+}
+
+#user-profile-edit > div:nth-child(2) > button {
+  margin: 20px auto;
+  color: white;
+  background-color: #009DDC;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+#user-profile-edit > div:nth-child(2) > button:hover {
+  background-color: #024196;
+}
+
+#log-in > button:hover {
+  font-weight: 600;
+  background-color: #024196;
+}
+
 button {
   cursor: pointer;
+}
+
+button:hover {
+  font-weight: 600;  
 }

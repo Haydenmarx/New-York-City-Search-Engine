@@ -1,16 +1,7 @@
 <div id="user-profile">
   <div id="user-profile-body">
     <div id="user-profile-feeds">
-      <app-api-jobs 
-        *ngFor="let unsavedJob of unsavedQueries.jobs"
-        [job]=unsavedJob
-        [removeFeed]="removeFeed"
-        [saveFeed]="saveFeed"
-        [updateFeed]="updateFeed"
-      >  
-      </app-api-jobs>
-      <button (click)="addFeed()">Add Feed</button>
-      <hr />
+      <h1>Saved Searches:</h1>
       <app-api-jobs 
         *ngFor="let query of queries.jobs"
         [job]=query
@@ -20,14 +11,27 @@
       </app-api-jobs>      
     </div>
     <div id="user-profile-edit">
-      <h1 *ngIf="(user.displayname === null)" >{{user.username}}'s Profile</h1>
-      <h1 *ngIf="(user.displayname !== null)">{{user.displayname}}'s Profile</h1>
-      <label for="user-profile-add-display-name" *ngIf="(user.displayname === null)" >Add display name:</label>
-      <label for="user-profile-add-display-name" *ngIf="(user.displayname !== null)" >Edit display name:</label>
-      <input id="user-profile-add-display-name" [(ngModel)]="displayname"/>
+      <div>
+        <h1 *ngIf="(user.displayname === null)" >{{user.username}}'s Profile</h1>
+        <h1 *ngIf="(user.displayname !== null)">{{user.displayname}}'s Profile</h1>
+        <label for="user-profile-add-display-name" *ngIf="(user.displayname === null)" >Add display name:</label>
+        <label for="user-profile-add-display-name" *ngIf="(user.displayname !== null)" >Edit display name:</label>
+        <input id="user-profile-add-display-name" [(ngModel)]="displayname"/>
 
-      <button (click)="updateProfile()">Edit Profile</button>
-      <button (click)="deleteMyself()">Delete Profile</button>
+        <button (click)="updateProfile()">Edit Profile</button>
+        <button (click)="deleteMyself()">Delete Profile</button>
+      </div>
+      <div>
+        <button (click)="addFeed()">Add Feed</button>        
+        <app-api-jobs 
+          *ngFor="let unsavedJob of unsavedQueries.jobs"
+          [job]=unsavedJob
+          [removeFeed]="removeFeed"
+          [saveFeed]="saveFeed"
+          [updateFeed]="updateFeed"
+        >  
+        </app-api-jobs>
+      </div>
     </div>
   </div>
 </div>
