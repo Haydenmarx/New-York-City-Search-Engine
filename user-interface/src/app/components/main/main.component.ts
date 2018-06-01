@@ -46,7 +46,7 @@ export class MainComponent implements OnInit {
     this.jobs = [];
     this.queries.jobs.forEach( query => {
       this.jobsService.getJobs(query.query).subscribe( list => {
-        this.jobs.push(list);
+      this.formatJobs(list);
       });
     });
   }
@@ -72,6 +72,24 @@ export class MainComponent implements OnInit {
         this.queries = updatedQueries;
       }
     });
+  }
+
+  formatJobs = (jobs) => {
+    console.log('Jerbs');
+    jobs = jobs.map(job => {
+        job.minimum_qual_requirements = job.minimum_qual_requirements.replace( /(\d\.)+/g, (li, item) => {
+         if (item === '1.') {
+            return li;
+         } else {
+            return '<br /><br />' + li;
+         }
+        });
+        job.job_description = job.job_description.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+        job.preferred_skills = job.preferred_skills.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+        job.to_apply = job.to_apply.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+        return job;
+    });
+    this.jobs.push(jobs);
   }
 
   constructor(private feedsService: FeedsService, private jobsService: JobsService) { }

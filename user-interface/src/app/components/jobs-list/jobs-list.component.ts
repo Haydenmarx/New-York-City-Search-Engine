@@ -14,28 +14,28 @@ export class JobsListComponent implements OnInit {
   expanded = false;
 
   toggleExpanded = () => {
-      console.log(this.jobs);
+      console.log('The jobs:', this.jobs, '|| Their queries:', this.queries);
       this.expanded = !this.expanded;
   }
 
-  showJobs = () => {
-    this.jobs = this.jobs.map(job => {
-        job.minimum_qual_requirements = job.minimum_qual_requirements.replace( /(\d\.)+/g, (li, item) => {
-         if (item === '1.') {
-            return li;
-         } else {
-            return '<br /><br />' + li;
-         }
-        });
-        job.job_description = job.job_description.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
-        job.preferred_skills = job.preferred_skills.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
-        job.to_apply = job.to_apply.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
-        return job;
-    });
-  }
+  // showJobs = () => {
+  //   this.jobs = this.jobs.map(job => {
+  //       job.minimum_qual_requirements = job.minimum_qual_requirements.replace( /(\d\.)+/g, (li, item) => {
+  //        if (item === '1.') {
+  //           return li;
+  //        } else {
+  //           return '<br /><br />' + li;
+  //        }
+  //       });
+  //       job.job_description = job.job_description.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+  //       job.preferred_skills = job.preferred_skills.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+  //       job.to_apply = job.to_apply.replace( /(â€¢\t)+/g, (linebreak) => '<br /><br />');
+  //       return job;
+  //   });
+  // }
 
   ngOnInit() {
-    this.showJobs();
+    // this.showJobs();
   }
 
 }

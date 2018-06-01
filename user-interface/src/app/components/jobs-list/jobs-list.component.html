@@ -1,8 +1,8 @@
 <div>
-    <h1 *ngFor="let query of queries.jobs" (click)="toggleExpanded()" >{{query.title}}</h1>
-    <ul *ngIf="expanded" >
-      <div *ngFor="let section of jobs">
-          <app-job *ngFor="let job of section" [job]="job"></app-job>
-      </div>
-    </ul>        
+    <div *ngFor="let section of jobs; index as i" [attr.data-index]="i">
+        <h1 (click)="toggleExpanded()">{{queries.jobs[i].title}}</h1>
+        <ul *ngIf="expanded" >
+            <app-job *ngFor="let job of section" [job]="job"></app-job>
+        </ul>
+    </div>    
 </div>
