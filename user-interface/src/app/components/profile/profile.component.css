@@ -89,7 +89,7 @@
 }
 
 #user-profile-edit > div:nth-child(2) > button {
-  margin: 20px auto;
+  margin: 0px auto;
   color: white;
   background-color: #009DDC;
   width: 100%;
