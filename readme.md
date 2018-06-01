@@ -7,7 +7,10 @@
 
 * Rather than needing to go different websites for court, public meeting or business information, NYSE offers all that information at single point with an easy to use interface.
 
-##### [Pitch Deck](https://docs.google.com/presentation/d/18EPsn_i-r3hD_CG6ulRMWqUoY-SPBzLbMAmpcvx9nEM/edit?usp=sharing)
+##### [Pitch Deck 1](https://docs.google.com/presentation/d/18EPsn_i-r3hD_CG6ulRMWqUoY-SPBzLbMAmpcvx9nEM/edit?usp=sharing)
+
+##### [Pitch Deck 2](https://docs.google.com/presentation/d/1lWytlHLLHTU6S7LO282Qgxpq7kuaOuP92Vy1-hvTc48/edit#slide=id.g3c0cdcde26_0_39)
+
 
 ##### [Trello](https://trello.com/b/U2CkMGhE/new-york)
 
